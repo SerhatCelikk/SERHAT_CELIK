@@ -1,4 +1,15 @@
 (() => {
+    const currentUrl = window.location.href;
+    const isHomepage = currentUrl === 'https://www.e-bebek.com/' || currentUrl === 'https://www.e-bebek.com';
+
+    if (!isHomepage) {
+        console.log("wrong page");
+        console.log("You are not in https://www.e-bebek.com/");
+        return;
+    }else {
+        console.log("correct page");
+    }
+
     const DATA_URL = "https://gist.githubusercontent.com/sevindi/8bcbde9f02c1d4abe112809c974e1f49/raw/9bf93b58df623a9b16f1db721cd0a7a539296cf0/products.json";
     const TTL_MS = 12 * 60 * 60 * 1000;
     const LS_PRODUCTS = "ebk2_products";
