@@ -10,36 +10,211 @@
 
     if (!document.getElementById("ebk2-styles")) {
         const css = `
-    .ebk2-wrap{box-sizing:border-box;width:100%;margin:0 0 12px 0}
-    .ebk2-container{max-width:100%;margin:0 auto;padding:0 16px}
-    .ebk2-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 10px}
-    .ebk2-header h2{font-family:Quicksand-SemiBold;font-weight:600;font-size:24px;line-height:28px;color:#1A1C1D;margin:0}
-    .ebk2-outer{position:relative}
-    .ebk2-row{overflow:hidden}
-    .ebk2-track{display:flex;gap:16px;transition:transform .35s ease;will-change:transform;padding:2px 0 10px}
-    .ebk2-item{flex:0 0 auto;width:275.5px}
-    .ebk2-card{position:relative;border:1px solid #DADCE0;border-radius:12px;background:#fff;padding:10px;box-shadow:0 1px 2px rgba(0,0,0,.04);height:100%}
-    .ebk2-img{width:100%;background:#F9F9F9;border-radius:10px;display:grid;place-items:center;overflow:hidden}
-    .ebk2-img img{width:100%;height:203px;object-fit:contain}
-    .ebk2-name{margin:8px 0 6px;color:#2C2D2E;font-size:13px;line-height:1.35;height:34px;overflow:hidden}
-    .ebk2-price{margin-top:6px}
-    .ebk2-price .old{color:#9aa0a6;text-decoration:line-through;font-size:12px;white-space:nowrap;margin-right:8px}
-    .ebk2-price .now{font-weight:700;font-size:16px;color:#E97F32}
-    .ebk2-badge{position:absolute;top:10px;left:10px;z-index:2;background:#ef4444;color:#fff;font-weight:700;font-size:12px;padding:4px 6px;border-radius:8px}
-    .ebk2-heart{position:absolute;top:10px;right:10px;z-index:2;width:28px;height:28px;border-radius:999px;background:rgba(255,255,255,.95);border:1px solid #eee;display:grid;place-items:center;cursor:pointer}
-    .ebk2-heart svg{width:18px;height:18px}
-    .heart{position:absolute;top:10px;right:10px;z-index:9999;width:28px;height:28px;border-radius:999px;background:rgba(255,255,255,.95);border:1px solid #eee;display:grid;place-items:center;cursor:pointer;pointer-events:auto}
-    .heart svg{width:18px;height:18px;transition:all 0.2s ease}
-    .heart:hover{transform:scale(1.1);background:rgba(255,255,255,1)}
-    .heart:active{transform:scale(0.95)}
-    .heart .icon-wrapper{position:relative;width:18px;height:18px;display:flex;align-items:center;justify-content:center;pointer-events:none}
-    .heart .icon-wrapper span{width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-weight:900 !important;text-shadow: 0 0 1px currentColor;pointer-events:none}
-    .heart .toys-icon{font-size:14px !important;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-    .heart .toys-icon-heart-outline{color:#666}
-    .heart .toys-icon-heart-orange-outline{color:#FF7A00}
-    .heart .toys-icon-heart-orange-outline.hovered{color:#FF7A00 !important; background-color:#FF7A00; -webkit-text-fill-color:#FF7A00; text-shadow: 0 0 0 #FF7A00}
-    .heart .toys-icon-heart-orange-outline::before{color:#FF7A00 !important; content:'♥'; font-size:18px}
-    .swiper-next, .swiper-prev{position:absolute;bottom:50%;top:auto;transform:translateY(50%);width:40px !important;height:40px !important;border:none;border-radius:999px !important;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:3;transition:all 0.2s ease}
+    .ebk2-wrap{
+        box-sizing:border-box;
+        width:100%;
+        margin:0 0 12px 0
+    }
+    .ebk2-container{
+        max-width:100%;
+        margin:0 auto;
+        padding:0 16px
+    }
+    .ebk2-header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        margin:12px 0 10px
+    }
+    .ebk2-header h2{
+        font-family:Quicksand-SemiBold;
+        font-weight:600;
+        font-size:24px;
+        line-height:28px;
+        color:#1A1C1D;
+        margin:0
+    }
+    .ebk2-outer{
+        position:relative
+    }
+    .ebk2-row{
+        overflow:hidden
+    }
+    .ebk2-track{
+        display:flex;
+        gap:16px;
+        transition:transform .35s ease;
+        will-change:transform;
+        padding:2px 0 10px
+    }
+    .ebk2-item{
+        flex:0 0 auto;width:275.5px
+    }
+    .ebk2-card{
+        position:relative;
+        border:1px solid #DADCE0;
+        border-radius:12px;
+        background:#fff;
+        padding:10px;
+        box-shadow:0 1px 2px rgba(0,0,0,.04);
+        height:100%
+    }
+    .ebk2-img{
+        width:100%;
+        background:#F9F9F9;
+        border-radius:10px;
+        display:grid;
+        place-items:center;
+        overflow:hidden
+    }
+    .ebk2-img img{
+        width:100%;
+        height:203px;
+        object-fit:contain
+    }
+    .ebk2-name{
+        margin:8px 0 6px;
+        color:#2C2D2E;
+        font-size:13px;
+        line-height:1.35;
+        height:34px;
+        overflow:hidden
+    }
+    .ebk2-price{
+        margin-top:6px
+    }
+    .ebk2-price .old{
+        color:#9aa0a6;
+        text-decoration:line-through;
+        font-size:12px;
+        white-space:nowrap;
+        margin-right:8px
+    }
+    .ebk2-price .now{
+        font-weight:700;
+        font-size:16px;
+        color:#E97F32
+    }
+    .ebk2-badge{
+        position:absolute;
+        top:10px;
+        left:10px;
+        z-index:2;
+        background:#ef4444;
+        color:#fff;
+        font-weight:700;
+        font-size:12px;
+        padding:4px 6px;
+        border-radius:8px
+    }
+    .ebk2-heart{
+        position:absolute;
+        top:10px;
+        right:10px;
+        z-index:2;
+        width:28px;
+        height:28px;
+        border-radius:999px;
+        background:rgba(255,255,255,.95);
+        border:1px solid #eee;
+        display:grid;
+        place-items:center;
+        cursor:pointer
+    }
+    .ebk2-heart svg{
+        width:18px;
+        height:18px
+    }
+    .heart{
+        position:absolute;
+        top:10px;
+        right:10px;
+        z-index:9999;
+        width:28px;
+        height:28px;
+        border-radius:999px;
+        background:rgba(255,255,255,.95);
+        border:1px solid #eee;
+        display:grid;
+        place-items:center;
+        cursor:pointer;
+        pointer-events:auto
+    }
+    .heart svg{
+        width:18px;
+        height:18px;
+        transition:all 0.2s ease
+    }
+    .heart:hover{
+        transform:scale(1.1);
+        background:rgba(255,255,255,1)
+    }
+    .heart:active{
+        transform:scale(0.95)
+    }
+    .heart .icon-wrapper{
+        position:relative;
+        width:18px;
+        height:18px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        pointer-events:none
+    }
+    .heart .icon-wrapper span{
+        width:18px;
+        height:18px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:900 !important;
+        text-shadow: 0 0 1px currentColor;
+        pointer-events:none
+    }
+    .heart .toys-icon{
+        font-size:14px !important;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        pointer-events:none
+    }
+    .heart .toys-icon-heart-outline{
+        color:#666
+    }
+    .heart .toys-icon-heart-orange-outline{
+        color:#FF7A00
+    }
+    .heart .toys-icon-heart-orange-outline.hovered{
+        color:#FF7A00 !important;
+        background-color:#FF7A00;
+        -webkit-text-fill-color:#FF7A00;
+        text-shadow: 0 0 0 #FF7A00
+    }
+    .heart .toys-icon-heart-orange-outline::before{
+        color:#FF7A00 !important;
+        content:'♥';
+        font-size:18px
+    }
+    .swiper-next, .swiper-prev{
+        position:absolute;
+        bottom:50%;
+        top:auto;
+        transform:translateY(50%);
+        width:40px !important;
+        height:40px !important;
+        border:none;
+        border-radius:999px !important;
+        background:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        box-shadow:0 2px 8px rgba(0,0,0,.1);
+        z-index:3;
+        transition:all 0.2s ease
+    }
     .swiper-prev{left:-65px}.swiper-next{right:-65px}
     .swiper-next .toys-icon, .swiper-prev .toys-icon{font-size:14px;color:#666p;width: 14px;height: 14px}
     .toys-icon .toys-icon-arrow-right{
@@ -113,43 +288,88 @@
     font-size: 14px;
     }
 
-    @media (min-width: 576px) { .ebk2-container{max-width: 540px} }
-    @media (min-width: 768px) { .ebk2-container{max-width: 720px} }
-    @media (min-width: 992px) { .ebk2-container{max-width: 960px} }
-    @media (min-width: 1280px) { .ebk2-container{max-width: 1180px} }
-    @media (min-width: 1480px) { .ebk2-container{max-width: 1296px} }
-    @media (min-width: 1580px) { .ebk2-container{max-width: 1320px} }
-    @media (max-width:991px){ .ebk2-item{width:calc(50% - 8px)} }
-    @media (min-width:992px) and (max-width:1279px){ .ebk2-item{width:calc(33.333% - 11px)}}
-    @media (min-width:1280px) and (max-width:1479px){ .ebk2-item{width:calc(25% - 12px)}}
-    @media (min-width:1480px){ .ebk2-item{width:calc(20% - 13px)} }
+    @media (min-width: 576px) { 
+        .ebk2-container{
+            max-width: 540px
+        } 
+    }
+    @media (min-width: 768px) { 
+        .ebk2-container{
+            max-width: 720px
+        } 
+    }
+    @media (min-width: 992px) { 
+        .ebk2-container{
+            max-width: 960px
+        } 
+    }
+    @media (min-width: 1280px) { 
+        .ebk2-container{
+            max-width: 1180px
+        } 
+    }
+    @media (min-width: 1480px) { 
+        .ebk2-container{
+            max-width: 1296px
+        } 
+    }
+    @media (min-width: 1580px) { 
+        .ebk2-container{
+            max-width: 1320px
+        } 
+    }
+    @media (max-width:991px){ 
+        .ebk2-item{
+            width:calc(50% - 8px)
+        } 
+    }
+    @media (min-width:992px) and (max-width:1279px){ 
+        .ebk2-item{
+            width:calc(33.333% - 11px)
+        }
+    }
+    @media (min-width:1280px) and (max-width:1479px){ 
+        .ebk2-item{
+            width:calc(25% - 12px)
+        }
+    }
+    @media (min-width:1480px){ 
+        .ebk2-item{
+            width:calc(20% - 13px)
+        } 
+    }
     `;
         const st = document.createElement("style");
-        st.id = "ebk2-styles"; st.textContent = css; document.head.appendChild(st);
+        st.id = "ebk2-styles"; 
+        st.textContent = css; 
+        document.head.appendChild(st);
     }
 
-    const fmt = n => Number(n).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " TL";
-    const pct = (o, p) => (o > 0 && p > 0 && p < o) ? Math.round((1 - p / o) * 100) : null;
-    const parseNum = t => Number(String(t).replace(/[^\d,.-]/g, '').replace('.', '').replace(',', '.'));
-    const loadFavs = () => { try { return new Set(JSON.parse(localStorage.getItem(LS_FAV) || "[]")) } catch { return new Set() } };
-    const saveFavs = set => localStorage.setItem(LS_FAV, JSON.stringify([...set]));
+    const loadFavs = () => { 
+        try { 
+            return new Set(JSON.parse(localStorage.getItem(LS_FAV) || "[]")) 
+        } catch { return new Set() } 
+    };
+    const saveFavs = (set) => localStorage.setItem(LS_FAV, JSON.stringify([...set]));
     const loadCache = () => {
         try {
             const ts = +localStorage.getItem(LS_TS) || 0;
-            if (Date.now() - ts > TTL_MS) return null;
+            if (Date.now() - ts > TTL_MS) {
+                return null;
+            }
             const raw = localStorage.getItem(LS_PRODUCTS); return raw ? JSON.parse(raw) : null;
-        } catch { return null }
+        } catch { 
+            return null
+         }
     };
-    const saveCache = arr => { localStorage.setItem(LS_PRODUCTS, JSON.stringify(arr)); localStorage.setItem(LS_TS, String(Date.now())); };
+    const saveCache = (arr) => { 
+        localStorage.setItem(LS_PRODUCTS, JSON.stringify(arr)); 
+        localStorage.setItem(LS_TS, String(Date.now())); 
+    };
     const normalize = (raw) => {
         const arr = Array.isArray(raw) ? raw : (raw?.products || []);
         return arr.map((p, i) => {
-            const image =
-                (p.img && String(p.img).trim()) ||
-                (p.image && String(p.image).trim()) ||
-                (p.image_url && String(p.image_url).trim()) ||
-                (p.imageUrl && String(p.imageUrl).trim()) ||
-                "";
+            const image = (p.img && String(p.img).trim());
 
             return {
                 id: String(p.id ?? `pid_${i}`),
@@ -167,10 +387,14 @@
 
     const fetchProducts = async () => {
         const cached = loadCache();
-        if (cached) return cached;
+        if (cached) {
+            return cached;
+        }
 
         const res = await fetch(DATA_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error(res.status);
+        if (!res.ok) {
+            throw new Error(res.status);
+        }
 
         const data = await res.json();
 
@@ -249,19 +473,28 @@
                       ${hasDisc ? `
                         <div class="original-price">
                           <span class="old-price-crossed">
-                            ${Math.floor(Number(p.original_price)).toLocaleString('tr-TR')}<span class="ng-star-inserted">,${String(Number(p.original_price).toFixed(2)).split('.')[1]} TL</span>
+                            ${Math.floor(Number(p.original_price)).toLocaleString('tr-TR')}
+                            <span class="ng-star-inserted">
+                                ,${String(Number(p.original_price).toFixed(2)).split('.')[1]} TL
+                            </span>
                           </span>
                           <span class="discount">%${pct}</span>
                         </div>
                         <div class="discounted-price">
                           <strong class="new-price">
-                            ${Math.floor(Number(p.price)).toLocaleString('tr-TR')}<span class="ng-star-inserted">,${String(Number(p.price).toFixed(2)).split('.')[1]} TL</span>
+                            ${Math.floor(Number(p.price)).toLocaleString('tr-TR')}
+                            <span class="ng-star-inserted">
+                                ,${String(Number(p.price).toFixed(2)).split('.')[1]} TL
+                            </span>
                           </strong>
                         </div>
                       ` : `
                         <div class="original-price">
                           <span class="old-price">
-                            ${Math.floor(Number(p.price || p.original_price)).toLocaleString('tr-TR')}<span class="ng-star-inserted">,${String(Number(p.price || p.original_price).toFixed(2)).split('.')[1]} TL</span>
+                            ${Math.floor(Number(p.price || p.original_price)).toLocaleString('tr-TR')}
+                            <span class="ng-star-inserted">
+                                ,${String(Number(p.price || p.original_price).toFixed(2)).split('.')[1]} TL
+                            </span>
                           </span>
                         </div>
                       `}
@@ -312,23 +545,23 @@
         const wrap = document.createElement("section");
         wrap.className = "ebk2-wrap";
         wrap.innerHTML = `
-      <div class="ebk2-container">
-        <div class="ebk2-header">
-          <h2>Beğenebileceğinizi düşündüklerimiz</h2>
+        <div class="ebk2-container">
+            <div class="ebk2-header">
+                <h2>Beğenebileceğinizi düşündüklerimiz</h2>
+            </div>
+            <div class="ebk2-outer">
+                <button class="swiper-prev" aria-label="back">
+                    <i class="toys-icon toys-icon-arrow-left"></i>
+                </button>
+                <button class="swiper-next" aria-label="next">
+                    <i class="toys-icon toys-icon-arrow-right"></i>
+                </button>
+                <div class="ebk2-row">
+                    <div class="ebk2-track"></div>
+                </div>
+            </div>
         </div>
-        <div class="ebk2-outer">
-          <button class="swiper-prev" aria-label="back">
-            <i class="toys-icon toys-icon-arrow-left"></i>
-          </button>
-          <button class="swiper-next" aria-label="next">
-            <i class="toys-icon toys-icon-arrow-right"></i>
-          </button>
-          <div class="ebk2-row">
-            <div class="ebk2-track"></div>
-          </div>
-        </div>
-      </div>
-    `;
+        `;
 
         INSERT_HOST.insertBefore(wrap, EXISTING || INSERT_HOST.firstChild);
 
@@ -347,7 +580,6 @@
         track.addEventListener("click", (e) => {
             const btn = e.target.closest(".heart");
             if (!btn) return;
-
 
             e.preventDefault();
             e.stopPropagation();
@@ -384,8 +616,12 @@
             prev.toggleAttribute("disabled", index <= 0);
             next.toggleAttribute("disabled", index >= maxIndex());
         };
-        prev.addEventListener("click", () => { index = clamp(index - 1, 0, maxIndex()); apply(); });
-        next.addEventListener("click", () => { index = clamp(index + 1, 0, maxIndex()); apply(); });
+        prev.addEventListener("click", () => { 
+            index = clamp(index - 1, 0, maxIndex()); apply(); 
+        });
+        next.addEventListener("click", () => { 
+            index = clamp(index + 1, 0, maxIndex()); apply(); 
+        });
 
         let isDown = false, startX = 0, startTX = 0, lastDX = 0;
 
@@ -401,7 +637,8 @@
         outer.addEventListener("pointermove", (e) => {
             if (e.target.closest('.heart')) return;
             if (!isDown) return;
-            const dx = e.clientX - startX; lastDX = dx;
+            const dx = e.clientX - startX; 
+            lastDX = dx;
             if (!dragging && Math.abs(dx) > DRAG_THRESHOLD) {
                 dragging = true;
                 outer.setPointerCapture?.(e.pointerId);
@@ -412,15 +649,21 @@
         });
 
         const end = (e) => {
-            if (e.target.closest('.heart')) return;
-            if (!isDown) return; isDown = false;
+            if (e.target.closest('.heart')) {
+                return;
+            }
+            if (!isDown) {
+                return;
+            }
+            isDown = false;
             track.style.transition = "";
             if (!dragging) {
                 return;
             }
             const w = getW();
             const moved = Math.round((-(startTX + lastDX)) / (w + GAP));
-            index = clamp(moved, 0, maxIndex()); apply();
+            index = clamp(moved, 0, maxIndex()); 
+            apply();
             outer.releasePointerCapture?.(e.pointerId);
         };
         outer.addEventListener("pointerup", end);
@@ -439,4 +682,6 @@
             console.error("ebk2 error:", e);
         }
     })();
-})();
+}
+)
+();
